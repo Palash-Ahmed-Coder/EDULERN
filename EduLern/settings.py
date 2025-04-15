@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Initialize environ
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # ✅ Load .env using full path
-ENVIRONMENT = env('ENVIRONMENT', default='production')
+ENVIRONMENT = env('ENVIRONMENT', default='development')
 
 # Database Setup
 if ENVIRONMENT == 'development':
@@ -46,8 +46,8 @@ if ENVIRONMENT == "development":
     ALLOWED_HOSTS=[]
 else:
     DEBUG=False
-    ALLOWED_HOSTS = ["edulern-production.up.railway.app"]
-    CSRF_TRUSTED_ORIGINS = ['https://edulern-production.up.railway.app']
+    ALLOWED_HOSTS = ["edulern-production.up.railway.app/"]
+    CSRF_TRUSTED_ORIGINS = ['https://edulern-production.up.railway.app/']
 
 # Application definition
 INSTALLED_APPS = [
@@ -134,3 +134,9 @@ DEFAULT_FROM_EMAIL = 'noreply@edulearn.com'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+#if shows infinity loop or url does not work then bellow line must be comment out
+# SECURE_SSL_REDIRECT = True
