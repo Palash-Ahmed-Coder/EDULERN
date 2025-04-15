@@ -42,8 +42,8 @@ SECRET_KEY = 'django-insecure-^ncehb8fs4m=q!=1wuz*9s62m2)@-$0(qv)62godank^utea47
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ENVIRONMENT == 'development'
 
-ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = ['https://your-app-name.up.railway.app']
+ALLOWED_HOSTS = ["edulern-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['https://edulern-production.up.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
