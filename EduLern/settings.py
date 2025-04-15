@@ -16,6 +16,20 @@ env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))  # ✅ Load .env using full path
 ENVIRONMENT = env('ENVIRONMENT', default='development')
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env("SECRET_KEY")
+
+# SECURITY WARNING: don't run with debug turned on in production
+# DEBUG = ENVIRONMENT == 'development'
+if ENVIRONMENT == "development":
+    DEBUG = True
+    ALLOWED_HOSTS=[]
+else:
+    DEBUG = False
+    ALLOWED_HOSTS = ["edulern-production.up.railway.app"]
+    CSRF_TRUSTED_ORIGINS = ["https://edulern-production.up.railway.app"]
+
+
 # Database Setup
 if ENVIRONMENT == 'development':
     DATABASES = {
@@ -36,23 +50,7 @@ else:
         }
     }
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production
-# DEBUG = ENVIRONMENT == 'development'
-if ENVIRONMENT == "development":
-    DEBUG = True
-    ALLOWED_HOSTS=[]
-else:
-    DEBUG = False
-    ALLOWED_HOSTS = [
-    "edulern-production.up.railway.app",
-    ".railway.app",  # wildcard subdomains
-    "127.0.0.1",
-    "localhost"
-]
-    CSRF_TRUSTED_ORIGINS = ["https://edulern-production.up.railway.app"]
 
 
 # Application definition
