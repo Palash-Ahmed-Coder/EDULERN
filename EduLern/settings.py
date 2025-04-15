@@ -40,7 +40,7 @@ else:
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production
-DEBUG = ENVIRONMENT == 'development'
+# DEBUG = ENVIRONMENT == 'development'
 if ENVIRONMENT == "development":
     DEBUG = True
     ALLOWED_HOSTS=[]
