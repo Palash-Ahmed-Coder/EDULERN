@@ -1,0 +1,13 @@
+{% extends "courses/base.html" %}
+{% block title %}Enrollment Failed{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-danger text-center">
+        <h2>Enrollment Failed!</h2>
+        <p>The email <strong>{{ student.email }}</strong> is already enrolled in <strong>{{ course.title }}</strong>.</p>
+        <a href="{% url 'enroll_course' %}" class="btn btn-primary mt-3">Try Again</a>
+
+    </div>
+</div>
+{% endblock %}

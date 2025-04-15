@@ -1,0 +1,13 @@
+{% extends "courses/base.html" %}
+{% block title %}{{ lesson.id|default:"Create" }} Lesson{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ lesson.id|default:"Create" }} Lesson</h2>
+    <form method="post" class="p-4 border rounded bg-white shadow-sm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100 mt-3">Save Lesson</button>
+    </form>
+    <a href="{% url 'course_list' %}" class="btn btn-secondary mt-3">Back to Courses</a>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "courses/base.html" %}
+{% block title %}Enroll in a Course{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Enroll in a Course</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <form method="post" class="p-4 border rounded bg-white shadow-sm">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="id_student_name" class="form-label">Student Name</label>
+                    {{ form.student_name }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_student_email" class="form-label">Student Email</label>
+                    {{ form.student_email }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_course" class="form-label">Select Course</label>
+                    {{ form.course }}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Enroll</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

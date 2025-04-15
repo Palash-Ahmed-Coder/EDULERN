@@ -1,0 +1,17 @@
+{% extends "courses/base.html" %}
+{% block title %}Students in {{ course.title }}{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Students enrolled in {{ course.title }}</h2>
+    {% if students %}
+        <ul class="list-group">
+            {% for student in students %}
+                <li class="list-group-item">{{ student.name }} ({{ student.email }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No students enrolled yet.</p>
+    {% endif %}
+    <a href="{% url 'course_list' %}" class="btn btn-secondary mt-3">Back to Courses</a>
+</div>
+{% endblock %}
