@@ -45,6 +45,7 @@ if ENVIRONMENT == "development":
     DEBUG = True
     ALLOWED_HOSTS=[]
 else:
+    DEBUG = False
     ALLOWED_HOSTS = [
     "edulern-production.up.railway.app",
     ".railway.app",  # wildcard subdomains
