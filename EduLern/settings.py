@@ -45,9 +45,14 @@ if ENVIRONMENT == "development":
     DEBUG = True
     ALLOWED_HOSTS=[]
 else:
-    DEBUG=False
-    ALLOWED_HOSTS = ["edulern-production.up.railway.app"]
-    CSRF_TRUSTED_ORIGINS = ['https://edulern-production.up.railway.app']
+    ALLOWED_HOSTS = [
+    "edulern-production.up.railway.app",
+    ".railway.app",  # wildcard subdomains
+    "127.0.0.1",
+    "localhost"
+]
+    CSRF_TRUSTED_ORIGINS = ["https://edulern-production.up.railway.app"]
+
 
 # Application definition
 INSTALLED_APPS = [
