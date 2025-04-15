@@ -46,8 +46,8 @@ if ENVIRONMENT == "development":
     ALLOWED_HOSTS=[]
 else:
     DEBUG=False
-    ALLOWED_HOSTS = ["edulern-production.up.railway.app/"]
-    CSRF_TRUSTED_ORIGINS = ['https://edulern-production.up.railway.app/']
+    ALLOWED_HOSTS = ["edulern-production.up.railway.app"]
+    CSRF_TRUSTED_ORIGINS = ['https://edulern-production.up.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
